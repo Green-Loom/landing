@@ -65,3 +65,30 @@ function green_loom_landing_register_blocks(): void {
 	register_block_type( get_template_directory() . '/blocks/follow-form' );
 }
 add_action( 'init', 'green_loom_landing_register_blocks' );
+
+/**
+ * Ensure a Privacy page exists and uses the Privacy template.
+ */
+function green_loom_landing_ensure_privacy_page(): void {
+	$existing = get_page_by_path( 'privacy' );
+	if ( $existing instanceof WP_Post ) {
+		update_post_meta( $existing->ID, '_wp_page_template', 'page-privacy' );
+		return;
+	}
+
+	$page_id = wp_insert_post(
+		array(
+			'post_title'   => __( 'Privacy', 'green-loom-landing' ),
+			'post_name'    => 'privacy',
+			'post_status'  => 'publish',
+			'post_type'    => 'page',
+			'post_content' => '',
+		),
+		true
+	);
+
+	if ( ! is_wp_error( $page_id ) && $page_id ) {
+		update_post_meta( (int) $page_id, '_wp_page_template', 'page-privacy' );
+	}
+}
+add_action( 'after_switch_theme', 'green_loom_landing_ensure_privacy_page' );
