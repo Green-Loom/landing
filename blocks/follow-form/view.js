@@ -1,5 +1,5 @@
 /**
- * Follow Form Interactivity API store (stub — no ESP network).
+ * Follow Form Interactivity API store (stub; no ESP network).
  */
 import { store, getContext } from '@wordpress/interactivity';
 
