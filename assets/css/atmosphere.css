@@ -1,0 +1,177 @@
+/**
+ * Atmosphere craft beyond what theme.json presets express.
+ * Keep scoped. Prefer presets in patterns when possible.
+ */
+
+/* Full-bleed hero plane: soft botanical field, not empty purple glow. */
+.gl-hero-plane {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	min-height: min(88vh, 52rem);
+	background:
+		radial-gradient(ellipse 90% 70% at 18% 88%, rgba(111, 184, 110, 0.22) 0%, transparent 55%),
+		radial-gradient(ellipse 70% 55% at 88% 12%, rgba(57, 130, 61, 0.35) 0%, transparent 50%),
+		linear-gradient(165deg, #0c1a10 0%, #163020 42%, #0f2216 100%);
+}
+
+.gl-hero-plane::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	opacity: 0.35;
+	background-image:
+		repeating-linear-gradient(
+			-28deg,
+			transparent 0,
+			transparent 11px,
+			rgba(232, 241, 233, 0.03) 11px,
+			rgba(232, 241, 233, 0.03) 12px
+		);
+	animation: gl-loom-drift 28s linear infinite;
+}
+
+.gl-hero-plane > * {
+	position: relative;
+	z-index: 1;
+}
+
+.gl-hero-plane .wp-block-heading,
+.gl-hero-plane p,
+.gl-hero-plane .wp-block-buttons {
+	max-width: 34rem;
+}
+
+.gl-brand-mark {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+}
+
+.gl-brand-mark img {
+	width: 2rem;
+	height: 2rem;
+	display: block;
+}
+
+.gl-goal-row {
+	border-left: 3px solid var(--wp--preset--color--primary);
+	padding-left: 1.25rem;
+}
+
+.gl-sticky-bar {
+	backdrop-filter: blur(10px);
+	background: color-mix(in srgb, var(--wp--preset--color--base) 88%, transparent);
+	border-bottom: 1px solid var(--wp--preset--color--tertiary);
+}
+
+/* Follow form (Interactivity API block) */
+.gl-follow-form {
+	display: grid;
+	gap: 1.1rem;
+	max-width: 28rem;
+}
+
+.gl-follow-form label {
+	display: grid;
+	gap: 0.35rem;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+}
+
+.gl-follow-form input[type="email"],
+.gl-follow-form select {
+	font: inherit;
+	padding: 0.75rem 0.9rem;
+	border: 2px solid var(--wp--preset--color--contrast);
+	border-radius: 4px;
+	background: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--contrast);
+	width: 100%;
+}
+
+.gl-follow-form input:focus-visible,
+.gl-follow-form select:focus-visible,
+.gl-follow-form button:focus-visible {
+	outline: 2px solid var(--wp--preset--color--primary-soft);
+	outline-offset: 2px;
+}
+
+.gl-follow-form .gl-consent {
+	display: flex;
+	gap: 0.65rem;
+	align-items: flex-start;
+	font-weight: 400;
+	line-height: 1.4;
+}
+
+.gl-follow-form .gl-consent input {
+	margin-top: 0.2rem;
+	flex-shrink: 0;
+}
+
+.gl-follow-form button[type="submit"] {
+	justify-self: start;
+	cursor: pointer;
+	font: inherit;
+	font-weight: 600;
+	padding: 0.85rem 1.35rem;
+	border: none;
+	border-radius: 4px;
+	background: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--base);
+}
+
+.gl-follow-form button[type="submit"]:disabled {
+	opacity: 0.65;
+	cursor: wait;
+}
+
+.gl-follow-form .gl-field-error,
+.gl-follow-form .gl-form-error {
+	color: #8b1e1e;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+}
+
+.gl-follow-form .gl-success {
+	padding: 1rem 0;
+	font-size: var(--wp--preset--font-size--large);
+	font-family: var(--wp--preset--font-family--heading);
+	line-height: 1.35;
+}
+
+.gl-follow-form [hidden] {
+	display: none !important;
+}
+
+@keyframes gl-loom-drift {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(24px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gl-hero-plane::before {
+		animation: none;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+@media (max-width: 600px) {
+	.gl-hero-plane {
+		min-height: min(78vh, 40rem);
+	}
+}

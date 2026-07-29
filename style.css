@@ -1,0 +1,20 @@
+/*
+Theme Name: Green Loom Landing
+Theme URI: https://github.com/Green-Loom/landing
+Author: Green Loom
+Author URI: https://greenloom.com
+Description: Marketing block theme for the Green Loom public landing page (M1 mission manifesto).
+Requires at least: 6.7
+Tested up to: 6.8
+Requires PHP: 7.4
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: green-loom-landing
+Tags: block-theme, full-site-editing, one-column, custom-colors, custom-fonts, accessibility-ready
+*/
+
+/*
+ * Theme styles live primarily in theme.json.
+ * Limited craft overrides: assets/css/atmosphere.css (enqueued in functions.php).
+ */

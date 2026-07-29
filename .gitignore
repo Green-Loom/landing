@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+.wp-env.override.json
+*.log
+.idea/
+.vscode/

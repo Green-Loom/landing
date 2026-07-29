@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "green-loom-landing/follow-form",
+	"version": "1.0.0",
+	"title": "Follow Form",
+	"category": "widgets",
+	"icon": "email",
+	"description": "Stub Follow updates form with Interactivity API state machine. No ESP network until Q-002.",
+	"keywords": ["follow", "email", "signup", "newsletter"],
+	"textdomain": "green-loom-landing",
+	"supports": {
+		"html": false,
+		"multiple": false,
+		"interactivity": true
+	},
+	"viewScriptModule": "green-loom-landing-follow-form-view",
+	"render": "file:./render.php"
+}
