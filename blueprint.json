@@ -13,7 +13,7 @@
 	"features": {
 		"networking": true
 	},
-	"login": true,
+	"login": false,
 	"siteOptions": {
 		"blogname": "Green Loom",
 		"blogdescription": "Modular tools for regulated cannabis retail",
