@@ -1,57 +1,57 @@
 # Green Loom Landing
 
-Public marketing site for [Green Loom](https://github.com/Green-Loom), delivered as a **WordPress block theme**.
+Public marketing site for [Green Loom](https://github.com/Green-Loom), delivered as a **static Astro** site.
 
 Copy and IA come from the Design Dash `green-loom-landing-page` (M1 mission manifesto). Conversion is **Follow updates** by email only. No discovery-call booking. Product suite detail is deferred.
 
 ## Requirements
 
-- WordPress **6.7+** (`theme.json` version 3)
-- PHP 7.4+
+- Node.js **22.12+**
+- npm 10+
 
-## Theme layout
+## Project layout
 
 ```
-style.css                 Theme header (GPL-2.0-or-later)
-theme.json                Presets + global styles (v3)
-functions.php             Enqueue, pattern category, Follow block
-templates/                front-page, index, page-privacy
-parts/                    header, footer
-patterns/                 M1 sections (hero → faq) + sticky header
-blocks/follow-form/       Interactivity API stub form
-assets/css/atmosphere.css Full-bleed hero craft + form styles
-assets/img/               Brand logo
-blueprint.json            WordPress Playground preview
+src/
+  pages/                  index, privacy
+  layouts/BaseLayout.astro
+  components/             Header, Footer, FollowForm, sections/*
+  scripts/follow-form.ts  Client stub (no ESP)
+  styles/                 tokens.css + atmosphere.css
+public/img/               Brand logo + section photography
+design-system/green-loom/ MASTER.md visual guide
 ```
-
-Text domain: `green-loom-landing`.
 
 ## Design system
 
-UI/UX Pro Max recommendations live in `design-system/green-loom/MASTER.md` (storytelling pattern, brand-locked Loom Green + Fraunces/Figtree). Prefer that file over the skill’s default navy/gold SaaS palette when iterating.
+UI guidance lives in `design-system/green-loom/MASTER.md` (Apple-quiet storytelling, Loom Green + Figtree). Prefer that file when iterating.
 
-## Preview with Playground
-
-**Local theme mount (use this to see uncommitted redesign work):**
+## Preview
 
 ```bash
 cd /Users/aaron/Sites/greenloom-landing
-npx @wp-playground/cli@latest start
+npm install
+npm run dev
 ```
 
-Do **not** run Playground from the archived monorepo folder `greenloom/landing-page` — that is static HTML, not this theme.
-
-Or run the Blueprint against the published theme on GitHub (will not include local-only changes until pushed):
+Production build:
 
 ```bash
-npx @wp-playground/cli@latest server --blueprint=./blueprint.json
+npm run build
+npm run preview
 ```
 
-Browser share (once `main` is on GitHub): open Playground with this Blueprint URL, or paste `blueprint.json` into the Blueprint editor.
+## GitHub Pages
+
+Live site (after deploy): **https://green-loom.github.io/landing/**
+
+Deploys from `main` via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). Astro `base` is `/landing` for the project Pages URL.
+
+Do **not** serve from the archived monorepo folder `greenloom/landing-page` — that is static HTML from an earlier era. Do not use WordPress Playground for this repo anymore.
 
 ## Follow form (stub)
 
-The `green-loom-landing/follow-form` block uses the **Interactivity API**:
+The Follow form is a client-side stub:
 
 | State | Behavior |
 |---|---|
@@ -65,9 +65,9 @@ There is **no network submit** until an ESP is chosen (Design Dash Q-002).
 
 ### Swap-in when ESP is ready
 
-1. Keep the Interactivity actions; replace the stub `setTimeout` in `blocks/follow-form/view.js` with a `fetch` to your endpoint (Kit, Mailchimp, custom REST, or CF7 proxy).
+1. Keep the client validation; replace the stub `setTimeout` in `src/scripts/follow-form.ts` with a `fetch` to your endpoint (Kit, Mailchimp, custom REST, or form proxy).
 2. Map fields: `email`, `role` (`operator` \| `builder-agency` \| `other`), `consent`, hidden `source_section=follow`.
-3. On HTTP/vendor failure, set `state.formError` to the vendor-down copy already in PHP state.
+3. On HTTP/vendor failure, surface the vendor-down copy already in the script.
 4. Update the Privacy page with processor name and retention.
 
 Force the error path in a browser console while testing:
@@ -78,11 +78,11 @@ window.__GL_FOLLOW_FORCE_ERROR = true;
 
 ## Design notes
 
-- Loom Green `#39823D` is the `primary` color preset.
-- Display: Fraunces. Body: Figtree. Avoid Inter-only stacks.
+- Loom Green `#39823D` is the primary accent.
+- Display and body: Figtree. Avoid Inter-only stacks.
 - Visitor copy: no em dashes; dual recognition voice (D-009) from the dash `copy.md`.
-- Atmosphere CSS is limited to craft theme.json cannot express (hero plane, form controls). Honors `prefers-reduced-motion`.
+- Atmosphere CSS is limited to craft tokens cannot express (hero plane, form controls). Honors `prefers-reduced-motion`.
 
 ## License
 
-GPL-2.0-or-later (WordPress theme convention).
+Code in this repo is available for Green Loom product use. Prefer an explicit LICENSE file before public redistribution.

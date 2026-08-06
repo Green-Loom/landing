@@ -1,5 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
-export default defineConfig({});
+// Project Pages: https://green-loom.github.io/landing/
+export default defineConfig({
+	output: 'static',
+	site: 'https://green-loom.github.io',
+	base: '/landing/',
+});
