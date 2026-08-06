@@ -43,9 +43,10 @@ npm run preview
 
 ## GitHub Pages
 
-Live site (after deploy): **https://green-loom.github.io/landing/**
+Live site: **https://www.greenloom.com**  
+Fallback: https://green-loom.github.io/landing/
 
-Deploys from `main` via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). Astro `base` is `/landing` for the project Pages URL.
+Deploys from `main` via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). Custom domain is `www.greenloom.com` (`public/CNAME`).
 
 Do **not** serve from the archived monorepo folder `greenloom/landing-page` — that is static HTML from an earlier era. Do not use WordPress Playground for this repo anymore.
 
