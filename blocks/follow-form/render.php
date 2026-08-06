@@ -67,8 +67,8 @@ $wrapper     = get_block_wrapper_attributes(
 	>
 		<input type="hidden" name="source_section" value="follow" />
 
-		<label>
-			<span><?php esc_html_e( 'Email', 'green-loom-landing' ); ?></span>
+		<label class="gl-field">
+			<span class="gl-field__label"><?php esc_html_e( 'Email', 'green-loom-landing' ); ?></span>
 			<input
 				type="email"
 				name="email"
@@ -88,19 +88,22 @@ $wrapper     = get_block_wrapper_attributes(
 			></span>
 		</label>
 
-		<label>
-			<span><?php esc_html_e( 'What describes you? (optional)', 'green-loom-landing' ); ?></span>
-			<select
-				name="role"
-				data-wp-on--change="actions.setRole"
-				data-wp-bind--value="context.role"
-				data-wp-bind--disabled="state.isSubmitting"
-			>
-				<option value=""><?php esc_html_e( 'Select one', 'green-loom-landing' ); ?></option>
-				<option value="operator"><?php esc_html_e( 'Operator', 'green-loom-landing' ); ?></option>
-				<option value="builder-agency"><?php esc_html_e( 'Builder / agency', 'green-loom-landing' ); ?></option>
-				<option value="other"><?php esc_html_e( 'Other', 'green-loom-landing' ); ?></option>
-			</select>
+		<label class="gl-field">
+			<span class="gl-field__label"><?php esc_html_e( 'What describes you? (optional)', 'green-loom-landing' ); ?></span>
+			<span class="gl-select">
+				<select
+					name="role"
+					data-wp-on--change="actions.setRole"
+					data-wp-bind--value="context.role"
+					data-wp-bind--disabled="state.isSubmitting"
+				>
+					<option value=""><?php esc_html_e( 'Select one', 'green-loom-landing' ); ?></option>
+					<option value="operator"><?php esc_html_e( 'Operator', 'green-loom-landing' ); ?></option>
+					<option value="builder-agency"><?php esc_html_e( 'Builder / agency', 'green-loom-landing' ); ?></option>
+					<option value="other"><?php esc_html_e( 'Other', 'green-loom-landing' ); ?></option>
+				</select>
+				<span class="gl-select__icon" aria-hidden="true"></span>
+			</span>
 		</label>
 
 		<label class="gl-consent">

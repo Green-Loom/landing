@@ -7,16 +7,20 @@
  * Viewport Width: 1400
  */
 ?>
-<!-- wp:group {"tagName":"section","align":"full","backgroundColor":"mist","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->
-<section class="wp-block-group alignfull has-mist-background-color has-background" id="follow" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--50)">
-	<!-- wp:heading {"fontSize":"x-large","fontFamily":"heading"} -->
-	<h2 class="wp-block-heading has-heading-font-family has-x-large-font-size"><?php esc_html_e( 'Follow the work', 'green-loom-landing' ); ?></h2>
-	<!-- /wp:heading -->
+<!-- wp:group {"tagName":"section","align":"full","className":"gl-tile gl-tile--light","backgroundColor":"base","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"0"}},"layout":{"type":"constrained","contentSize":"52rem"}} -->
+<section class="wp-block-group alignfull gl-tile gl-tile--light has-base-background-color has-background" id="follow" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+	<!-- wp:group {"className":"gl-tile__inner","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group gl-tile__inner">
+		<!-- wp:heading {"textAlign":"center","fontFamily":"heading"} -->
+		<h2 class="wp-block-heading has-text-align-center has-heading-font-family"><?php esc_html_e( 'See Green Loom take shape.', 'green-loom-landing' ); ?></h2>
+		<!-- /wp:heading -->
 
-	<!-- wp:paragraph {"fontSize":"large"} -->
-	<p class="has-large-font-size"><?php esc_html_e( 'We are early. If the mission fits how you think about the problem, stay close. We will share progress, decisions, and chances to weigh in.', 'green-loom-landing' ); ?></p>
-	<!-- /wp:paragraph -->
+		<!-- wp:paragraph {"align":"center","className":"gl-tile__sub"} -->
+		<p class="has-text-align-center gl-tile__sub"><?php esc_html_e( 'Get occasional updates on what is shipping and where you can help shape it.', 'green-loom-landing' ); ?></p>
+		<!-- /wp:paragraph -->
 
-	<!-- wp:green-loom-landing/follow-form /-->
+		<!-- wp:green-loom-landing/follow-form /-->
+	</div>
+	<!-- /wp:group -->
 </section>
 <!-- /wp:group -->

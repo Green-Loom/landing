@@ -26,15 +26,22 @@ blueprint.json            WordPress Playground preview
 
 Text domain: `green-loom-landing`.
 
+## Design system
+
+UI/UX Pro Max recommendations live in `design-system/green-loom/MASTER.md` (storytelling pattern, brand-locked Loom Green + Fraunces/Figtree). Prefer that file over the skill’s default navy/gold SaaS palette when iterating.
+
 ## Preview with Playground
 
-**From this repo (after clone):**
+**Local theme mount (use this to see uncommitted redesign work):**
 
 ```bash
+cd /Users/aaron/Sites/greenloom-landing
 npx @wp-playground/cli@latest start
 ```
 
-Or run the Blueprint against the published theme:
+Do **not** run Playground from the archived monorepo folder `greenloom/landing-page` — that is static HTML, not this theme.
+
+Or run the Blueprint against the published theme on GitHub (will not include local-only changes until pushed):
 
 ```bash
 npx @wp-playground/cli@latest server --blueprint=./blueprint.json

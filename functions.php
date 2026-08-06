@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GREEN_LOOM_LANDING_VERSION', '1.0.0' );
+define( 'GREEN_LOOM_LANDING_VERSION', '1.3.8' );
 
 /**
  * Theme setup.
