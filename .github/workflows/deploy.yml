@@ -27,11 +27,8 @@ jobs:
           node-version: '22'
           cache: npm
 
-      - name: Align npm with lockfile
-        run: npm install -g npm@11
-
       - name: Install
-        run: npm ci
+        run: npm install
 
       - name: Build
         run: npm run build
